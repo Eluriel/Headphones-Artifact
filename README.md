@@ -1,4 +1,4 @@
-# Headphones Artefact
+# Headphones Artifact
 
 Project made for a LARP where the character is deaf and has created an artifact that allows him to hear.
 
