@@ -3,6 +3,8 @@
 CRGB leds[NUM_LEDS];
 int mode = 0;
 int currentHue = HUE_INIT;
+int fadeBrightness = 0;
+int fadeDirection = STANDARD;
 float smoothedValue = 0.0; // Exponential smoothing
 
 OneButton btn = OneButton(
@@ -43,9 +45,27 @@ void setup() {
     mode += 1;
   });
 }
+
 void solidMode(){
     for(int i = 0; i < NUM_LEDS; i++) {
     leds[i] = CHSV(currentHue, SATURATION, 255/2);
+  }
+}
+
+void fadeMode(){
+  if(fadeDirection == STANDARD){
+    fadeBrightness++;
+    if(fadeBrightness > BRIGHTNESS)
+      fadeDirection = REVERSE;
+  }
+
+  if(fadeDirection == REVERSE){
+    fadeBrightness--;
+    if(fadeBrightness <= 0)
+      fadeDirection = STANDARD;
+  }
+  for(int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CHSV(currentHue, SATURATION, fadeBrightness);
   }
 }
 
@@ -79,7 +99,7 @@ void loop() {
       solidMode();
       break;
     case FADE_MODE:
-      // fadeMode();
+      fadeMode();
       break;
     default:
       // Reset to first mode

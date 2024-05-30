@@ -11,16 +11,21 @@ FASTLED_USING_NAMESPACE
 
 // Application constants
 #define NUM_LEDS 3
-#define BRIGHTNESS      220 // Min: 0, Max: 255
+#define BRIGHTNESS      255 // Min: 0, Max: 255
 #define SATURATION      255 // Min: 0, Max: 255
 #define MIN_VAL          10 // Min: 0, Max: 75
-#define MAX_VAL         150 // Min: 75, Max: 750
+#define MAX_VAL         200 // Min: 75, Max: 750
 #define HUE_INIT         HUE_AQUA // < 255
 #define HUE_CHANGE       32 // < 255
-#define ALPHA            0.1 // Smoothing factor (0 < alpha <= 1)
+#define ALPHA           0.1 // Smoothing factor (0 < alpha <= 1)
 
 enum LedModes {
   SOUND_MODE = 0,
   SOLID_MODE = 1,
   FADE_MODE = 2,
+};
+
+enum FadeDirection {
+  STANDARD = 0,
+  REVERSE = 1,
 };
