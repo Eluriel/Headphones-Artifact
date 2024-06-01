@@ -71,7 +71,7 @@ void fadeMode(){
 
 void soundMode(){
   // Read from sound sensor
-  int analogVal = analogRead(A0);
+  int analogVal = analogRead(ENVELOPE_PIN);
 
   if(analogVal > MAX_VAL)
     analogVal = MAX_VAL;

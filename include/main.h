@@ -7,7 +7,7 @@ FASTLED_USING_NAMESPACE
 // Input / Output
 #define BUTTON_PIN 4
 #define NEOPIXEL_PIN 6
-#define ENVELOPE_PIN A4 // Envelope Pin of the Sparkfun Sound Detector Module
+#define ENVELOPE_PIN A0 // Envelope Pin of the Sparkfun Sound Detector Module
 
 // Application constants
 #define NUM_LEDS 3
